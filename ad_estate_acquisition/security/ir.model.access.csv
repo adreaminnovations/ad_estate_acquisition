@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_estate_feasibility_user,estate.feasibility.user,model_estate_feasibility,ad_estate_base.group_estate_user,1,1,1,0
+access_estate_feasibility_manager,estate.feasibility.manager,model_estate_feasibility,ad_estate_base.group_estate_manager,1,1,1,1
+access_estate_sanction_user,estate.sanction.user,model_estate_sanction,ad_estate_base.group_estate_user,1,1,1,0
+access_estate_sanction_manager,estate.sanction.manager,model_estate_sanction,ad_estate_base.group_estate_manager,1,1,1,1
+access_estate_doc_gen_wizard,estate.doc.gen.wizard,model_estate_doc_gen_wizard,ad_estate_base.group_estate_user,1,1,1,1

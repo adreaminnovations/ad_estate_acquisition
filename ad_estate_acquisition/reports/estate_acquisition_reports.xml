@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_legal_document" model="ir.actions.report">
+        <field name="name">Legal Template Document</field>
+        <field name="model">estate.doc.gen.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ad_estate_acquisition.report_legal_document_template</field>
+        <field name="report_file">ad_estate_acquisition.report_legal_document_template</field>
+        <field name="print_report_name">'Legal_Document_%s_%s' % (object.doc_type, object.execution_date)</field>
+        <field name="binding_model_id" ref="ad_estate_acquisition.model_estate_doc_gen_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
+

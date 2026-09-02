@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_estate_feasibility_tree" model="ir.ui.view">
+        <field name="name">estate.feasibility.list</field>
+        <field name="model">estate.feasibility</field>
+        <field name="arch" type="xml">
+            <list string="Feasibility Studies">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="gross_plot_area"/>
+                <field name="total_potential_bua"/>
+                <field name="saleable_bua"/>
+                <field name="total_project_cost"/>
+                <field name="projected_sale_realization"/>
+                <field name="net_profit"/>
+                <field name="roi_percent"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_estate_feasibility_form" model="ir.ui.view">
+        <field name="name">estate.feasibility.form</field>
+        <field name="model">estate.feasibility</field>
+        <field name="arch" type="xml">
+            <form string="Feasibility Study">
+                <header>
+                    <button string="Generate Legal Agreement" type="action" name="%(ad_estate_acquisition.action_estate_doc_gen_wizard)d" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g. Feasibility Study - Site B"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Project &amp; Lead Reference">
+                            <field name="project_id"/>
+                            <field name="lead_id"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="ROI Summary">
+                            <field name="net_profit" widget="monetary"/>
+                            <field name="roi_percent"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Plot &amp; FSI Parameters" name="plot_fsi">
+                            <group>
+                                <group string="Area Calculations">
+                                    <field name="gross_plot_area"/>
+                                    <field name="permissible_fsi"/>
+                                    <field name="fungible_fsi"/>
+                                    <field name="tdr_area"/>
+                                    <field name="total_potential_bua" font-weight="bold"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Redevelopment Entitlements" name="redevelopment">
+                            <group>
+                                <group string="Existing Member Matrix">
+                                    <field name="total_existing_members"/>
+                                    <field name="current_carpet_area"/>
+                                    <field name="proposed_incentive_pct"/>
+                                    <field name="total_rehab_area"/>
+                                </group>
+                                <group string="Transit &amp; Compensation">
+                                    <field name="transit_rent_per_member"/>
+                                    <field name="displacement_compensation"/>
+                                    <field name="total_hard_soft_rent_cost" widget="monetary"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Financial Projections" name="financials">
+                            <group>
+                                <group string="Cost Breakdown">
+                                    <field name="land_acquisition_cost"/>
+                                    <field name="sanction_cost"/>
+                                    <field name="construction_cost"/>
+                                    <field name="marketing_cost"/>
+                                    <field name="total_project_cost" class="oe_subtotal_footer_separator"/>
+                                </group>
+                                <group string="Revenue &amp; Realization">
+                                    <field name="saleable_bua"/>
+                                    <field name="avg_sale_rate"/>
+                                    <field name="projected_sale_realization"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_estate_feasibility" model="ir.actions.act_window">
+        <field name="name">Feasibility Studies</field>
+        <field name="res_model">estate.feasibility</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

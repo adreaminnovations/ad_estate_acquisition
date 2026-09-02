@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_estate_acquisition_root" name="Land &amp; Acquisition" parent="ad_estate_base.menu_estate_root" sequence="15"/>
+    <menuitem id="menu_estate_feasibility" name="Feasibility Studies" parent="menu_estate_acquisition_root" action="action_estate_feasibility" sequence="10"/>
+    <menuitem id="menu_estate_sanction" name="Sanctions &amp; Permits" parent="menu_estate_acquisition_root" action="action_estate_sanction" sequence="20"/>
+</odoo>

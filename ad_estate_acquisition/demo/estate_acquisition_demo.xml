@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Sample Feasibility Study -->
+        <record id="demo_estate_feasibility_1" model="estate.feasibility">
+            <field name="name">Skyline Phase 2 Feasibility</field>
+            <field name="project_id" ref="ad_estate_base.demo_estate_project_1"/>
+            <field name="gross_plot_area">50000.0</field>
+            <field name="permissible_fsi">2.5</field>
+            <field name="fungible_fsi">15000.0</field>
+            <field name="land_acquisition_cost">500000.0</field>
+            <field name="sanction_cost">75000.0</field>
+            <field name="construction_cost">1200000.0</field>
+            <field name="avg_sale_rate">220.0</field>
+        </record>
+
+        <!-- Ensure User Timezone uses standard IANA identifier 'Asia/Kolkata' -->
+        <record id="base.user_admin" model="res.users">
+            <field name="tz">Asia/Kolkata</field>
+        </record>
+    </data>
+</odoo>

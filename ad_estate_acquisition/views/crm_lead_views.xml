@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_lead_view_form_estate_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form.estate.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='lead_partner']" position="after">
+                <group string="Real Estate Acquisition Details">
+                    <group>
+                        <field name="source_type"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="emd_amount" invisible="source_type != 'tender'"/>
+                        <field name="tender_submission_date" invisible="source_type != 'tender'"/>
+                        <field name="tender_portal_ref" invisible="source_type != 'tender'"/>
+                    </group>
+                    <group>
+                        <field name="referrer_id" invisible="source_type != 'referral'"/>
+                        <field name="brokerage_agreed_pct" invisible="source_type != 'referral'"/>
+                    </group>
+                </group>
+                <group string="Competitor Notes" invisible="source_type != 'tender'">
+                    <field name="competitor_notes" placeholder="Notes on competing bidders, rates, etc."/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

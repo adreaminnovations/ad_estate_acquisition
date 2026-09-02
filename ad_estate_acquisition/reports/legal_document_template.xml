@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_legal_document_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="text-center mb4 font-weight-bold">
+                            <h2 t-if="doc.doc_type == 'mou'">MEMORANDUM OF UNDERSTANDING (MOU)</h2>
+                            <h2 t-if="doc.doc_type == 'da'">DEVELOPMENT AGREEMENT (DA)</h2>
+                            <h2 t-if="doc.doc_type == 'pa'">POWER OF ATTORNEY (PA)</h2>
+                        </div>
+                        <br/>
+                        <p><strong>This Agreement</strong> is made and executed on <strong><span t-field="doc.execution_date"/></strong> by and between:</p>
+                        
+                        <p><strong>DEVELOPER:</strong> Real Estate Enterprise / Organization</p>
+                        <p><strong>PARTY / LANDOWNER:</strong> <span t-field="doc.partner_id.name"/> (PAN: <span t-field="doc.partner_id.pan_no"/>)</p>
+                        
+                        <hr/>
+                        
+                        <h4>1. PROJECT DETAILS &amp; FEASIBILITY</h4>
+                        <p>This agreement pertains to the land / redevelopment project evaluated under Feasibility Study: <strong><span t-field="doc.feasibility_id.name"/></strong>.</p>
+                        <ul>
+                            <li>Gross Plot Area: <span t-field="doc.feasibility_id.gross_plot_area"/> sq ft</li>
+                            <li>Total Potential BUA: <span t-field="doc.feasibility_id.total_potential_bua"/> sq ft</li>
+                        </ul>
+
+                        <h4>2. FINANCIAL CONSIDERATION &amp; TERMS</h4>
+                        <p>The agreed consideration / compensation payable under this document is <strong><span t-field="doc.agreed_amount" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/></strong>.</p>
+
+                        <t t-if="doc.special_terms">
+                            <h4>3. SPECIAL CLAUSES &amp; CONDITIONS</h4>
+                            <p><span t-field="doc.special_terms"/></p>
+                        </t>
+
+                        <br/><br/>
+                        <div class="row mt64">
+                            <div class="col-6">
+                                <p>_______________________<br/>For Developer</p>
+                            </div>
+                            <div class="col-6 text-end">
+                                <p>_______________________<br/>For Landowner / Member (<span t-field="doc.partner_id.name"/>)</p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
